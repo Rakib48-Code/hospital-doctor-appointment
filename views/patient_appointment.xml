@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View for Doctor Appointment -->
+    <record id="doctor_appointment_tree_view" model="ir.ui.view">
+        <field name="name">doctor.appointment.tree</field>
+        <field name="model">doctor.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="appointment_date"/>
+                <field name="patient_name"/>
+                <field name="doctor_id"/>
+                <field name="appointment_type"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="state" widget="badge"
+                       decoration-warning="state == 'pending'"
+                       decoration-info="state == 'confirmed'"
+                       decoration-success="state == 'completed'"
+                       decoration-danger="state == 'cancelled'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Doctor Appointment -->
+    <record id="doctor_appointment_form_view" model="ir.ui.view">
+        <field name="name">doctor.appointment.form</field>
+        <field name="model">doctor.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Appointment">
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight" states="pending" type="object"/>
+                    <button name="action_completed" string="Completed" class="oe_highlight" states="confirmed"
+                            type="object"/>
+                    <button name="action_cancel" string="Cancel" class="btn-danger" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,confirmed,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="APPOINTMENT TITEL"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_name"/>
+                            <field name="doctor_id"/>
+                            <field name="appointment_type"/>
+                        </group>
+                        <group>
+                            <field name="appointment_date"/>
+                            <field name="medical_history"/>
+                            <field name="reason_for_visit"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Doctor Appointment -->
+    <record id="action_doctor_appointment" model="ir.actions.act_window">
+        <field name="name">Doctor Appointments</field>
+        <field name="res_model">doctor.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Use this module to manage doctor appointments.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item for Doctor Appointment -->
+    <menuitem id="menu_doctor_appointment" name="Doctor Appointments" parent="appointment_root"
+              action="action_doctor_appointment"/>
+</odoo>

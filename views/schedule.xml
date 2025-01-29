@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="appointment_schedule_tree_view" model="ir.ui.view">
+        <field name="name">appointment.schedule.tree</field>
+        <field name="model">appointment.schedule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="appointment_date"/>
+                <field name="patient_name"/>
+                <field name="doctor_id"/>
+                <field name="appointment_type"/>
+                <field name="state" widget="badge"
+                       decoration-warning="state == 'pending'"
+                       decoration-info="state == 'confirmed'"
+                       decoration-success="state == 'completed'"
+                       decoration-danger="state == 'cancelled'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="appointment_schedule_action" model="ir.actions.act_window">
+        <field name="name">Appointment Schedules</field>
+        <field name="res_model">appointment.schedule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_appointment_schedule" name="Appointment Schedules" parent="appointment_root"
+              action="appointment_schedule_action"/>
+</odoo>
