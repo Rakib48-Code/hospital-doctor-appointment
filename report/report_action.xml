@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_report_doctor_appointment" model="ir.actions.report">
+        <field name="name">Doctor Appointment Report</field>
+        <field name="model">doctor.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">appointment.report_doctor_appointment</field>
+        <field name="report_file">appointment.report_doctor_appointment</field>
+        <field name="binding_model_id" ref="model_doctor_appointment"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

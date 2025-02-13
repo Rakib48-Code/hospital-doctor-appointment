@@ -21,6 +21,10 @@
         'views/menu.xml',
         'views/patient_appointment.xml',
         'views/schedule.xml',
+
+        # report
+        'report/report_template.xml',
+        'report/report_action.xml',
     ],
     'demo': [],
     'installable': True,
