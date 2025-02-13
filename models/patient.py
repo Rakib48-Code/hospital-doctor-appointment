@@ -13,7 +13,7 @@ class DoctorAppointment(models.Model):
         ('confirmed', 'Confirmed'),
         ('completed', 'Completed'),
         ('cancelled', 'Cancelled')
-    ], default='pending', string='Status', track_visibility='onchange')
+    ], default='pending', string='Status', track='onchange')
 
     patient_name = fields.Char(string='Patient', required=True)
     doctor_id = fields.Many2one('hr.employee', string='Doctor', required=True)

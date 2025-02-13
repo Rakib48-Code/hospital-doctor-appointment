@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_doctor_appointment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="padding: 20px; border: 1px solid #000; width: 80%; margin: auto;">
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px;">
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Appointment Title:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Appointment Date:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.appointment_date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Status:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.state"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Patient Name:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.patient_name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Doctor:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.doctor_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Appointment Type:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.appointment_type"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Medical History:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.medical_history"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Reason for Visit:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.reason_for_visit"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">Start Time:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.start_time"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 8px; border: 1px solid #000;">End Time:</td>
+                            <td style="padding: 8px; border: 1px solid #000;">
+                                <t t-esc="doc.end_time"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

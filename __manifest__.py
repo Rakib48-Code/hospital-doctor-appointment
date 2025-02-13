@@ -23,8 +23,9 @@
         'views/schedule.xml',
 
         # report
-        'report/report_template.xml',
+        # 'report/report_template.xml',
         'report/report_action.xml',
+        'report/report_test.xml',
     ],
     'demo': [],
     'installable': True,
